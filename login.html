@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation - Login & Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: #3C059C;
+            color: #fff;
+            padding: 1rem 0;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #fff;
+            color: #3C059C;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"] {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        form button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #3C059C;
+            color: #fff;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #795FF2;
+        }
+        footer {
+            margin-top: 2rem;
+            padding: 1rem 0;
+            background-color: #3C059C;
+            color: #fff;
+        }
+        .switch-form {
+            margin-top: 1rem;
+        }
+        .switch-form a {
+            color: #3C059C;
+            text-decoration: none;
+        }
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MOVIE RECOMMENDATIONS</h1>
+    </header>
+    <div class="container" id="login-form">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="switch-form">
+            <p>Don't have an account? <a href="#register-form" onclick="switchToRegister()">Register</a></p>
+        </div>
+    </div>
+    <div class="container" id="register-form" style="display:none;">
+        <h2>Register</h2>
+        <form action="/register" method="post">
+            <input type="text" placeholder="Username" name="username" required>
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+            <button type="submit">Register</button>
+        </form>
+        <div class="switch-form">
+            <p>Already have an account? <a href="#login-form" onclick="switchToLogin()">Login</a></p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Movie Recommendation App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function switchToRegister() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+        }
+
+        function switchToLogin() {
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
